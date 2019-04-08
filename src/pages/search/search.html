@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar></ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list margined no-top-margin inset no-lines>
+
+    <ion-item rounded-input>
+      <ion-input type="search" placeholder="Quick search" text-center text-uppercase></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="or"></div>
+
+  <h2 text-center text-uppercase>Select your place</h2>
+
+  <ion-list margined inset no-lines no-top-margin>
+
+    <ion-item>
+      <ion-label stacked>Country</ion-label>
+      <ion-input type="text" placeholder="Romania"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Place</ion-label>
+      <ion-input type="text" placeholder="Mamania"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="or" no-bottom-margin></div>
+
+  <ion-list margined inset no-lines no-top-margin>
+
+    <button ion-button color="primary" clear icon-left text-uppercase small>
+      <ion-icon name="compass"></ion-icon>
+      Use my current location
+    </button>
+
+    <h3 text-capitalize no-margin>Select period</h3>
+
+    <ion-row no-side-padding (click)="presentCalendar()">
+
+      <ion-col col-5>
+        <ion-item>
+          <ion-label stacked text-capitalize color="primary">Start date</ion-label>
+          <ion-input readonly type="text" placeholder="01/01/2017" [(ngModel)]="date.from"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-5 offset-2>
+        <ion-item>
+          <ion-label stacked text-capitalize color="primary">End date</ion-label>
+          <ion-input readonly type="text" placeholder="01/01/2017" [(ngModel)]="date.to"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-label text-small text-center no-top-margin>within {{date.period}} days period</ion-label>
+
+    <button ion-button round full pink-gradient (click)="next()">Next</button>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header class="has-shadow">
+
+  <ion-navbar>
+
+    <ion-title>{{country}}, {{place}}</ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only (click)="showFilter()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <p text-center>{{beaches.length}} Beaches</p>
+
+  <ion-card *ngFor="let beach of beaches" (click)="next()">
+    <ion-row>
+
+      <ion-col col-3 class="card-left">
+
+        <img [src]="beach.img"/>
+        <p text-center class="reviews">({{beach.reviews}})</p>
+
+        <div class="star-rating">
+          <ion-icon name="star" [class.full]="beach.rating>=1"></ion-icon>
+          <ion-icon name="star" [class.full]="beach.rating>=2"></ion-icon>
+          <ion-icon name="star" [class.full]="beach.rating>=3"></ion-icon>
+          <ion-icon name="star" [class.full]="beach.rating>=4"></ion-icon>
+          <ion-icon name="star" [class.full]="beach.rating>=5"></ion-icon>
+        </div>
+
+      </ion-col>
+
+      <ion-col col-9 class="card-right">
+        <h4 class="title">{{beach.title}}</h4>
+        <p class="seats">{{beach.seats}} Seats</p>
+
+        <ion-item class="available">
+          Available:
+          <span class="place" item-end>
+            {{beach.sunbed}}
+            <ion-icon name="place-sunbed"></ion-icon>
+          </span>
+          <span class="place" item-end>
+            {{beach.umbrella}}
+            <ion-icon name="place-umbrella"></ion-icon>
+          </span>
+          <span class="place" item-end>
+            {{beach.baldaquin}}
+            <ion-icon name="place-baldaquin"></ion-icon>
+          </span>
+        </ion-item>
+
+        <div class="options">
+          <ion-icon *ngFor="let option of beach.options" name="option-{{option}}"></ion-icon>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-card>
+
+</ion-content>
